@@ -25,3 +25,9 @@ table th, table td{
     padding-bottom: 25px;
     margin-top: 0px;
 }
+
+.inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
