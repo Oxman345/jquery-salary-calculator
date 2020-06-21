@@ -22,7 +22,8 @@ $(document).ready(function(){
         console.log(monthlyExpenses);
         $('#monthlyExpenses').text(`Monthly Expenses: $${monthlyExpenses}`)
     }) 
-    $('#delete').on('click', deleteRow())
+    $('input[type="button"]').click(function(e){   $(this).closest('tr').remove()})
+    //$('#delete').on('click', deleteRow())
     // when user clicks delete, take input and delete row
     // $('#delete').click(function() {
     //     $('.annSal').remove();
