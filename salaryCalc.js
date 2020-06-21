@@ -8,16 +8,26 @@ $(document).ready(function(){
         let annualSalary = $('#annualSalary').val()
         let results = "<tr><td>" + firstName + "</td><td>" 
         + lastName + "</td><td>" + id + "</td><td>"
-        + title + "</td><td>" + annualSalary + "</td><td>" 
+        + title + "</td><td class='aSalary'>" + annualSalary + "</td><td>" 
         + "<input type='submit' id='delete' value='delete'></td></tr>"
         $("table tbody").append(results); 
 
-        for(let i = 0; i < $("table").length; i++) {
-            let totalEmployeeSalary = $('#annualSalary').val()[i]; 
-            totalEmployeeSalary = totalEmployeeSalary + $('#annualSalary').val()[i];
-            let monthlyExpenses = parseInt(totalEmployeeSalary)/12 ;
-            console.log(monthlyExpenses);
-
+        let annSal = $('.aSalary');
+        let totalAnnSal = 0;
+        for(let i = 0; i < annSal.length; i++) {
+            totalAnnSal = totalAnnSal + parseInt(annSal[i].innerText);   
         }
+        
+        let monthlyExpenses = totalAnnSal / 12;
+        console.log(monthlyExpenses);
+        $('#monthlyExpenses').text(`Monthly Expenses: $${monthlyExpenses}`)
     }) 
+    $('#delete').on('click', deleteRow())
+    // when user clicks delete, take input and delete row
+    // $('#delete').click(function() {
+    //     $('.annSal').remove();
+    // })
+    // $('input[type="submit"]').click(function(){  
+    //     $(this).closest('tr').remove()
+    // })
 });
