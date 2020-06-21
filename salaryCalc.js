@@ -11,5 +11,13 @@ $(document).ready(function(){
         + title + "</td><td>" + annualSalary + "</td><td>" 
         + "<input type='submit' id='delete' value='delete'></td></tr>"
         $("table tbody").append(results); 
+
+        for(let i = 0; i < $("table").length; i++) {
+            let totalEmployeeSalary = $('#annualSalary').val()[i]; 
+            totalEmployeeSalary = totalEmployeeSalary + $('#annualSalary').val()[i];
+            let monthlyExpenses = parseInt(totalEmployeeSalary)/12 ;
+            console.log(monthlyExpenses);
+
+        }
     }) 
 });
